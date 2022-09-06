@@ -12,13 +12,13 @@ class XylophoneApp extends StatelessWidget {
     );
   }
 
-  void buildKey() {
-    Expanded(
+  Expanded buildKey({required Color color, required int soundNumber}) {
+    return Expanded(
       child: TextButton(
         onPressed: () {
-          playSound(1);
+          playSound(soundNumber);
         },
-        style: TextButton.styleFrom(backgroundColor: Colors.red),
+        style: TextButton.styleFrom(backgroundColor: color),
         child: const Text(''),
       ),
     );
@@ -34,13 +34,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
+              buildKey(color: Colors.blue.shade100, soundNumber: 1),
+              buildKey(color: Colors.blue.shade400, soundNumber: 2),
+              buildKey(color: Colors.blue.shade100, soundNumber: 3),
+              buildKey(color: Colors.blue.shade400, soundNumber: 4),
+              buildKey(color: Colors.blue.shade100, soundNumber: 5),
+              buildKey(color: Colors.blue.shade400, soundNumber: 6),
+              buildKey(color: Colors.blue.shade100, soundNumber: 7),
             ],
           ),
         ),
